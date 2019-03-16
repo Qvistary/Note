@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Note</string>
+    <string name="create_database">Create database</string>
+    <string name="add_data">添加</string>
+    <string name="search">查询</string>
+</resources>
