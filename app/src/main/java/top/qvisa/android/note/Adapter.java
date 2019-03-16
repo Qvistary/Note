@@ -32,14 +32,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Note note = mList.get(i);
-        viewHolder.mTv_item_title.setText(note.getTitle());
-        viewHolder.mTv_item_content.setText(note.getTitle());
+        viewHolder.mTv_item_title.setText(mList.get(i).getTitle());
+        viewHolder.mTv_item_content.setText(mList.get(i).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -48,7 +47,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            mTv_item_title= itemView.findViewById(R.id.item_Tv_title);
+            mTv_item_content= itemView.findViewById(R.id.item_Tv_content);
         }
     }
 

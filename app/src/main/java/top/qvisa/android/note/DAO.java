@@ -11,8 +11,7 @@ public class DAO {
 
     private final MyDatabaseHelper mDb;
 
-
-    public DAO(Context context) {
+    public DAO(Context context ) {
         mDb = new MyDatabaseHelper(context);
 
     }
@@ -42,7 +41,7 @@ public class DAO {
 
     }
 
-    public void query(List<Note> mNoteList) {
+    public void query(List<Note> noteList) {
         SQLiteDatabase sqLiteDatabase=mDb.getReadableDatabase();
         Cursor cursor=sqLiteDatabase.query("Note",null,null,null,null,null,null);
         cursor.moveToFirst();
@@ -50,7 +49,7 @@ public class DAO {
             String title=cursor.getString(cursor.getColumnIndex("title"));
             String content=cursor.getString(cursor.getColumnIndex("content"));
             Note note=new Note(title,content);
-            mNoteList.add(note);
+            noteList.add(note);
         }while (cursor.moveToNext());
         cursor.close();
     }

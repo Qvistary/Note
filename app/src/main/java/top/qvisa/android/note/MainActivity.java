@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         bindID();
         SetOnclickListener();
-        initData();
     }
 
     private void initData() {
@@ -60,8 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Bt_search:
+                mNoteList.clear();
                 DAO dao = new DAO(this);
                 dao.query(mNoteList);
+                initData();
         }
     }
 
